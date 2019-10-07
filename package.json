@@ -4,7 +4,14 @@
   "description": "Vue uppy Gallery",
   "main": "index.js",
   "scripts": {
+    "build": "cross-env NODE_ENV=production rollup --config build/rollup.config.js",
+    "build:umd": "cross-env NODE_ENV=production rollup --config build/rollup.config.js --format umd",
+    "build:es": "cross-env NODE_ENV=production rollup --config build/rollup.config.js --format es",
+    "build:unpkg": "cross-env NODE_ENV=production rollup --config build/rollup.config.js --format iife",
     "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "browser": {
+    "./sfc": "src/UppyGallery.vue"
   },
   "repository": {
     "type": "git",
@@ -15,10 +22,25 @@
     "uppy",
     "gallery"
   ],
+  "files": [
+    "dist/*",
+    "src/*"
+  ],
   "author": "Stark Tonny <starktonny45@gmail.com>",
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/starktonny/vue-uppy-gallery/issues"
   },
-  "homepage": "https://github.com/starktonny/vue-uppy-gallery#readme"
+  "homepage": "https://github.com/starktonny/vue-uppy-gallery#readme",
+  "dependencies": {
+    "bootstrap": "^4.3.1",
+    "jquery": "^3.3.1",
+    "popper.js": "^1.14.7"
+  },
+  "devDependencies": {
+    "cross-env": "^5.2.0",
+    "minimist": "^1.2.0",
+    "vue": "^2.6.8",
+    "vue-template-compiler": "^2.6.8"
+  }
 }
